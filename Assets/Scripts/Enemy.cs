@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [Header("General Settings")]
     [SerializeField] private float _speed;
     [SerializeField] private Transform platformDetect;
+    [SerializeField] private int _points;
 
     private float _rayDist;
     private bool _movingRight;
@@ -47,6 +48,7 @@ public class Enemy : MonoBehaviour
     {
         if (collider.tag == "Projectile")
         {
+            GameManager.manager.AddScore(_points);
             Destroy(collider.gameObject);
             Destroy(this.gameObject);
         }    

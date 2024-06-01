@@ -11,6 +11,12 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void NextLevel() 
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Level2");
+    }
+
     void Update()
     {
         if (Input.GetKey(KeyCode.P))

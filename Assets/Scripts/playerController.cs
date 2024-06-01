@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour {
     public bool _isGrounded = true;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private float _offsetX = 1f;
+    [SerializeField] private int _life;
 
     void Start()
     {
@@ -70,6 +71,7 @@ public class playerController : MonoBehaviour {
 
         if (collision.gameObject.tag == "Enemy")
         {
+            GameManager.manager.TakeLife(_life);
             Destroy(this.gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
